@@ -21,8 +21,9 @@ export class Calculations extends Calculator{
                 return result;
             }
             case ('/'): {
-                if (firstNumber || secondNumber == 0){
-                    throw Error("Number can't be 0, please provide another")
+                if (firstNumber === 0 || secondNumber === 0){
+                    console.log()
+                    throw new Error("Number can't be 0, please provide another")
                 }
                 else
                 {
@@ -32,7 +33,7 @@ export class Calculations extends Calculator{
             }
             }
             default: {
-                throw Error("Operator was not defined correctly");
+                throw new Error("Operator was not defined correctly");
             }
         }
     }
