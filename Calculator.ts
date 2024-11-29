@@ -1,21 +1,25 @@
 
 export class Calculator  {
 
-    protected static add(firstNumber: number,secondNumber: number):number{
+    public static add(firstNumber: number,secondNumber: number):number{
         const result:number = firstNumber + secondNumber;
         return result;
     }
-    protected static minus(firstNumber:number, secondNumber:number):number{
+    public static minus(firstNumber:number, secondNumber:number):number{
         const result:number = firstNumber - secondNumber;
         return result;
     }
-    protected static multiply(firstNumber:number, secondNumber:number):number{
+    public static multiply(firstNumber:number, secondNumber:number):number{
         const result:number = firstNumber * secondNumber;
         return result;
     }
-    protected static divide(firstNumber:number, secondNumber:number):number{
+    public static divide(firstNumber:number, secondNumber:number):number{
         const result:number = firstNumber / secondNumber;
         return result;
+    }
+    public static hasOneMathOperator(stringNumber:string){
+        const match = stringNumber.match('/[+\-*/%^]/g')
+        return match?.length === 1;
     }
 }
 

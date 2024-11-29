@@ -1,9 +1,8 @@
 import { Calculator } from "./Calculator";
-export class Calculations extends Calculator{
+export class Calculations {
     constructor(){
-        super()
     }
-    static createCalculation(firstNumber:number,secondNumber:number, operator: string):number{
+    static Calculate(firstNumber:number,secondNumber:number, operator: string):number{
         switch (operator){
             case ('+'): {
                 const result = Calculator.add(firstNumber,secondNumber);
@@ -36,6 +35,13 @@ export class Calculations extends Calculator{
                 throw new Error("Operator was not defined correctly");
             }
         }
+    }
+    static convertStringCalculation(stringCalculation:string):number{
+        if (Calculator.hasOneMathOperator(stringCalculation)){
+            const result:number = new Function('return ' + stringCalculation)()
+            return result;
+        }
+        else throw new Error("String have more than one char or mathematical operations can't be made. The operation can have max. 2 numbers")
     }
 
 
