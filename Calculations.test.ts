@@ -28,6 +28,12 @@ test('multiple sums (1+3+5+2), expected 11',() =>{
 test('sum without operator',() =>{
     expect(() => Calculations.Calculate(5,55,"")).toThrow("Operator was not defined correctly")})
 test('operation about string and calculation "1 + 2 = 3"',()=>{
-    expect(() => Calculations.convertStringCalculation("1 + 2")).toBe(3)});
+    expect(Calculations.convertStringCalculation("1 + 2")).toBe(3)});
+test('operation about string and calculation "1 + 2 - 1 ", throwing error',()=>{
+    expect(() => Calculations.convertStringCalculation("1 + 2 - 1"))
+    .toThrow("String have more than one char or mathematical operations can't be made.The operation can have max. 2 numbers".trim())});
+
+test('multiple arythmetic operations: "1+2*3/2"')
+
 
 

@@ -18,8 +18,12 @@ export class Calculator  {
         return result;
     }
     public static hasOneMathOperator(stringNumber:string){
-        const match = stringNumber.match('/[+\-*/%^]/g')
+        const match = stringNumber.match(/[+\-*/%^]/g)
         return match?.length === 1;
+    }
+    public static hasSetNumbers(string:string, howManyNumber:number){
+        const match = string.match(/\d+/g)
+        return match?.length === howManyNumber;
     }
 }
 
