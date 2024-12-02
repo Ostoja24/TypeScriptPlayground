@@ -47,24 +47,39 @@ export class Calculations {
     Error("String have more than one char or mathematical operations can't be made.The operation can have max. 2 numbers".trim())
     }
     static multipleArithmeticOperation(numericOperation:string){
-        const numbersStock: number [] = [];
-        const opetatorsStock: string[] = [];
-        let trimmeredNumericOperations = numericOperation.replace(/\s+/g, '');
-        const tokens = trimmeredNumericOperations.match(/\d+|\+|\-|\*|\//g);
-        for (let token of tokens){
-            if (/\d/.test(token)){
-                numbersStock.push(Number(token))
+        const numbers: string [] = [];
+        const operators: string [] = [];
+        let trimmeredNumericOperations: string [] = numericOperation.split(' ');
+        for (let token of trimmeredNumericOperations){
+            if (Number.isInteger(Number(token))){
+                numbers.push(token)
             }
-            else if (['+','-','/','*'].includes(token)){
-                do {
-                opetatorsStock.push(token)
-            } while (opetatorsStock.length > 0 && this.higherPriorityOperators)
-        }        
+            else if (token.length == 1 && !Number.isInteger(Number(token)))
+                {
+                operators.length > 0 && this.isOperator1biggerThanOperator2(operators[operators.length-1],operators[operators.length])}
+                operators.push(token)
+            }
+            else{
+                throw new Error("Problem with operation, please review");
+        }
     }
-    static higherPriorityOperators (operator1:string, operator2: string):boolean{
+    
+    static returnOperatorPriority (operator:string):number {
         const operatorPriority = {'+':1,'-':1,'*':2,'/':2};
-        return operatorPriority[operator1] >= operatorPriority[operator2];
+        if (operator in operatorPriority){
+        return operatorPriority[operator as keyof typeof operatorPriority];
+    } else {
+        throw new Error("Undefined operator")
+    }}
+    static isOperator1biggerThanOperator2(operator1: string, operator2: string): boolean{
+       if (this.returnOperatorPriority(operator1) > this.returnOperatorPriority(operator2)){
+        return true;
+       }
+       else{
+        return false;
+       }
     }
+
 
 
 }
