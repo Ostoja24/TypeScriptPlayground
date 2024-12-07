@@ -5,36 +5,27 @@ export class Calculations {
     static Calculate(firstNumber: number, secondNumber: number, operator: string): number {
         switch (operator) {
             case ('+'): {
-                const result = Calculator.add(firstNumber, secondNumber);
-                console.log(result);
-                return result;
+                return Calculator.add(firstNumber, secondNumber);
             }
             case ('-'): {
-                const result = Calculator.minus(firstNumber, secondNumber);
-                console.log(result);
-                return result;
+                return Calculator.minus(firstNumber, secondNumber);
             }
             case ('*'): {
-                const result = Calculator.multiply(firstNumber, secondNumber);
-                console.log(result);
-                return result;
+                return Calculator.multiply(firstNumber, secondNumber);
             }
             case ('/'): {
                 if (firstNumber === 0 || secondNumber === 0) {
-                    console.log()
                     throw new Error("Number can't be 0, please provide another")
                 }
                 else {
-                    const result = Calculator.divide(firstNumber, secondNumber);
-                    console.log(result);
-                    return result;
+                    return Calculator.divide(firstNumber, secondNumber);
                 }
             }
             default: {
                 throw new Error("Operator was not defined correctly".trim());
             }
         }
-    
+
     }
     static multipleArithmeticOperation(numericOperation: string) {
         const numbers: number[] = [];
