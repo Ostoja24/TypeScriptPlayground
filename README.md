@@ -18,3 +18,8 @@ The calculator includes validation for the operator to ensure correct functional
 ## Testing
 
 The project includes tests written using the **Jest** framework. These tests validate the calculator's logic, ensuring its correctness and reliability.
+
+## Install
+
+To run project, type into CMD the command: " npm install ",
+After the installation end, run the command: " npm run 'test suite' "
