@@ -1,0 +1,10 @@
+type Query {
+  getEndBowlingResult (results:Results): CalculatedEndScore!
+}
+type Results {
+  resultsList: [String!]!
+}
+type CalculatedEndScore {
+  endScore: Number
+}
+
