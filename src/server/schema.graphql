@@ -1,10 +1,12 @@
 type Query {
-  getEndBowlingResult (results:Results): CalculatedEndScore!
+  getEndBowlingResult (results: ResultsInput): CalculatedEndScore!
 }
-type Results {
+
+input ResultsInput {
   resultsList: [String!]!
 }
+
 type CalculatedEndScore {
-  endScore: Number
+  endScore: Int
 }
 
